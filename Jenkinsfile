@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    
+
+    tools{
+        node "NodeJS"
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -20,25 +23,11 @@ pipeline {
             steps {
                 // Build your Node.js application (if applicable)
                 // Example: npm run build
-                sh 'npm run build'
+                sh 'node app'
             }
         }
         
-        stage('Test') {
-            steps {
-                // Run tests (if applicable)
-                // Example: npm test
-                sh 'npm test'
-            }
-        }
         
-        stage('Deploy') {
-            steps {
-                // Deployment steps (if applicable)
-                // Example: Deploying to a test server or pushing to Docker registry
-                // Adjust this based on your deployment strategy
-            }
-        }
     }
     
     post {
