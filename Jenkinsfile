@@ -18,9 +18,11 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Start Application') {
             steps {
-                sh 'node app'  // Replace with your build command if applicable
+                // Start Node.js application in the background
+                sh 'nohup node app > app.log 2>&1 &'
+                sleep 10  // Optional: Wait for application to start (adjust as needed)
             }
         }
 
