@@ -32,7 +32,7 @@ pipeline {
                     def attemptCount = 0
                     while (!appRunning && attemptCount < maxAttempts) {
                         try {
-                            sh 'curl -sSf http://localhost:3000/ -o /dev/null'
+                            sh 'curl -sSf http://localhost:5000/ -o /dev/null'
                             appRunning = true
                         } catch (Exception e) {
                             echo "Waiting for application to start..."
