@@ -28,7 +28,7 @@ pipeline {
 
         stage('Deployment') {
             steps {
-                sh 'sudo systemctl reload nginx'  // Reload Nginx after deployment
+                sh 'systemctl reload nginx'  // Reload Nginx after deployment
                 echo 'Deployment completed!'
             }
         }
