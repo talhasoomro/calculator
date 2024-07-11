@@ -20,16 +20,13 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Perform any build steps, if applicable
+                sh 'npm run build'  // Replace with your build command if applicable
             }
         }
 
         stage('Deployment') {
             steps {
-                // Optionally, restart or reload Nginx to apply new configuration
-                sh 'sudo systemctl reload nginx'  // Adjust for your system
-
-                // Optionally, notify deployment success
+                sh 'sudo systemctl reload nginx'  // Reload Nginx after deployment
                 echo 'Deployment completed!'
             }
         }
@@ -38,7 +35,7 @@ pipeline {
     post {
         success {
             echo 'Build succeeded!'
-            // Optionally, trigger deployment stage or notifications
+            // Optionally, trigger notifications or further actions
         }
         failure {
             echo 'Build failed!'
