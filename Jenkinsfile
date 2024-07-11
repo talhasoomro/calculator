@@ -23,8 +23,8 @@ pipeline {
             steps {
                 // Build your Node.js application (if applicable)
                 // Example: npm run build
-                sh 'node app'
-                sleep 120
+                sh 'nohup node app &'
+                sleep 10
             }
         }
         
