@@ -28,7 +28,8 @@ pipeline {
 
         stage('Deployment') {
             steps {
-                sh 'systemctl reload nginx'  // Reload Nginx after deployment
+                // Reload Nginx using sudo with password provided via stdin
+                sh 'echo your_password | sudo -S systemctl reload nginx'
                 echo 'Deployment completed!'
             }
         }
